@@ -1,23 +1,22 @@
 {
-  "name": "node-grunt",
-  "version": "1.0.0",
-  "description": "Heroku example for using Grunt with Node.js",
-  "main": "index.js",
+  "name": "boilerplate",
+  "version": "2.1.3",
   "scripts": {
-    "heroku-postbuild": "grunt uglify",
-    "start": "node server.js"
+    "build": "npm install && npm install -g grunt-cli",
+    "start": "grunt serve"
   },
-  "author": "Hunter Loftis <hunter@hunterloftis.com>",
-  "repository": "https://github.com/heroku-examples/node-grunt.git",
-  "readme": "https://github.com/heroku-examples/node-grunt/blob/master/readme.md",
-  "license": "ISC",
+  "main": "main.js",
   "dependencies": {
-    "express": "4.12.3",
-    "grunt": "0.4.5",
-    "grunt-cli": "0.1.13",
-    "grunt-contrib-uglify": "0.9.1"
-  },
-  "engines": {
-    "node": "10.x"
+    "grunt": "^1.0.1",
+    "grunt-asar": "bwin/grunt-asar#update-asar",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-download-electron": "^2.1.4",
+    "grunt-processhtml": "^0.4.1",
+    "grunt-replace": "^1.0.1"
   }
 }
