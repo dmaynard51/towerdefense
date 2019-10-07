@@ -6,7 +6,7 @@ game.Enemy = me.Entity.extend({
             height: 32
         }]);
         this.chooseShipImage();
-        this.body.setVelocity(0, 0);
+        this.body.setVelocity(0, 1);
         this.body.collisionType = me.collision.types.ENEMY_OBJECT;
         this.name = 'ship';
     },
@@ -17,11 +17,27 @@ game.Enemy = me.Entity.extend({
         this.renderable.setCurrentAnimation("idle");
     },
 
+
+
+
+
+
+
+
     update: function (time) {
+        
+        this.body.vel.y -= this.body.accel.y * time / 1000;
+        if (this.pos.y + this.height <= 0) {
+            me.game.world.removeChild(this);
+        }        
+        
         this._super(me.Entity, "update", [time]);
 
         this.body.update();
-
+        me.collision.check(this);
         return true;
-    }
+    },    
+
+    
+    
 });
