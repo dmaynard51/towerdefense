@@ -35,6 +35,7 @@ var game = {
         me.pool.register("player", game.Player);
         me.pool.register("laser", game.Laser);
         me.pool.register("enemy", game.Enemy);
+        me.pool.register("enemy1", game.Enemy1);        
 
         // start the game
         me.state.change(me.state.PLAY);

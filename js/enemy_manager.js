@@ -16,26 +16,46 @@ game.EnemyManager = me.Container.extend({
         this.updateChildBounds();
     },
 
+    createEnemies2: function () {
+        
+
+
+        this.addChild(me.pool.pull("enemy", 20, 20));
+        this.createdEnemies = true;
+        this.updateChildBounds();  
+    
+  
+
+
+    
+        
+        
+
+    
+
+    },
+
     onActivateEvent: function () {
         var _this = this;
         this.timer = me.timer.setInterval(function () {
-            var bounds = _this.childBounds;
-            /*
-            if ((_this.vel > 0 && (bounds.right + _this.vel) >= me.game.viewport.width) ||
-                (_this.vel < 0 && (bounds.left + _this.vel) <= 0)) {
-                _this.vel *= -1;
-                _this.pos.y += 16;
-                if (_this.vel > 0) {
-                    _this.vel += 5;
-                }
-                else {
-                    _this.vel -= 5;
-                }
-                game.playScreen.checkIfLoss(bounds.bottom);
+        var bounds = _this.childBounds;
+
+        if ((_this.vel > 0 && (bounds.right + _this.vel) >= me.game.viewport.width) ||
+            (_this.vel < 0 && (bounds.left + _this.vel) <= 0)) {
+            _this.vel *= -1;
+            _this.pos.y += 16;
+            if (_this.vel > 0) {
+              _this.vel += 5;
             }
             else {
-                _this.pos.x += _this.vel;
-            }*/
+              _this.vel -= 5;
+            }
+        }
+        else {
+            _this.pos.x += _this.vel;
+        }          
+
+
         }, 1000);
     },
 
@@ -56,3 +76,5 @@ game.EnemyManager = me.Container.extend({
         this.updateChildBounds();
     }
 });
+
+

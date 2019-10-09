@@ -1,4 +1,4 @@
-game.Enemy = me.Entity.extend({
+game.Enemy1 = me.Entity.extend({
     init: function (x, y) {
         this._super(me.Entity, "init", [x, y, {
             image: "ships",
@@ -11,6 +11,7 @@ game.Enemy = me.Entity.extend({
         this.body.setVelocity(0, 1);
         this.body.collisionType = me.collision.types.ENEMY_OBJECT;
         this.name = 'ship';
+        //this.updateChildBounds();
     },
 
     chooseShipImage: function () {
@@ -20,11 +21,7 @@ game.Enemy = me.Entity.extend({
     },
 
 
-    removeChildNow: function (child) {
-        this._super(me.Container, "removeChildNow", [child]);
-        
-        this.updateChildBounds();
-    },
+
 
 
 
@@ -39,8 +36,10 @@ game.Enemy = me.Entity.extend({
         
         this._super(me.Entity, "update", [time]);
 
+
         this.body.update();
         me.collision.check(this);
+        //this.updateChildBounds();
         return true;
     },    
 
